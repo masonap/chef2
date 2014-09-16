@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
 # NEED TO UPDATE FOR NUMBER OF GUESTS * PRICE
     begin
       charge = Stripe::Charge.create(
-        :amount => (@listing.price * 100).floor,
+        :amount => (@listing.price * @order.guests * 100).floor,
         :currency => "usd",
         :card => token
         )
@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
 
 # NEED TO UPDATE FOR NUMBER OF GUESTS * PRICE
     transfer = Stripe::Transfer.create(
-      :amount => (@listing.price * 90).floor,
+      :amount => (@listing.price * @order.guests * 90).floor,
       :currency => "usd",
       :recipient => @seller.recipient
       )
