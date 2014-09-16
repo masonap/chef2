@@ -78,7 +78,10 @@ Look at this too - https://github.com/icalendar/icalendar
 %>
 
 <%# Need to add logic for dropdown menu with parameters of min and max guests %>
-
+      <div class="form-group">
+        <%= f.label :guests, "Number of people eating" %>
+        <%= f.text_field :guests, class: "form-control" %>
+      </div>
       <div class="form-group">
         <%= f.label :address %>
         <%= f.text_field :address, class: "form-control" %>

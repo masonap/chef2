@@ -13,7 +13,11 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><%= link_to "About", pages_about_path %></li>
+      
+  <%# Commenting our about page
+      <li><%= link_to "About", pages_about_path %>
+  <%# </li>
+  %>
       <li><%= link_to "Contact", pages_contact_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -21,8 +25,22 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Chef Account <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Manage Menus", seller_path %></li>
-            <li><%= link_to "Sales History", sales_path %></li>
+            <li><%= link_to seller_path do %>
+              <span class="glyphicon glyphicon-cutlery"></span>
+                  Manage Menus
+              <% end %>
+            </li>
+            <li><%= link_to sales_path do %>
+              <span class="glyphicon glyphicon-usd"></span>
+                  Sales History
+              <% end %>
+            </li>
+            <%# Original menu style
+            <%# <li><%= link_to "Manage Menus", seller_path %>
+            <%#</li>
+            <%#<li><%= link_to "Sales History", sales_path %>
+            <%#</li>
+            %>
           </ul>
         </li>
 

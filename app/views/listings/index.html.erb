@@ -8,16 +8,18 @@
 %>
 <%# Need to update values <%= render 'layouts/value3' %> 
 
-<br>
 <%# search functionality %>
 <%= search_form_for @q do |f| %>
     <div class="form-group">
       <%= f.label :name_cont, "Menu contains" %>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <%= f.text_field :name_cont, class: "form-control" %>
         </div>
-        <div class="col-md-2">
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-4">
           <%= f.submit "Search", class: "btn btn-primary" %>
         </div>
       </div>
