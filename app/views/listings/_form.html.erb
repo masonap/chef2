@@ -1,0 +1,67 @@
+<%= form_for(@listing, :html => { :multipart => true }) do |f| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h4>
+
+      <ul>
+      <% @listing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="stripe_error" class="alert alert-danger" style="display:none">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name, "Meal name" %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+    <%# 
+
+    <div class="form-group">
+    <%= f.label :cuisine, "Select the type of cuisine" %>
+    <%#    <br>
+    <%# 
+    <%= f.select(:cuisine, options_for_select(['American', 'French', 'Italian', 'Thai']), {}, {class: "form-control"}) %>
+  
+  <%# </div> %>
+  <div class="form-group">
+    <%= f.label :description, "Please provide a description of the meal" %><br>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price, "Price per person" %><br>
+    <%= f.text_field :price, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, "Please upload a photo of the meal" %><br>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <% if current_user.recipient.blank? %>
+    <br>
+    <h1>Bank Account Information</h1>
+    <h4>(You will only need to enter this information once)</h4>
+
+    <div class="form-group">
+      <%= label_tag :country %>
+      <%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" } %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :routing_number %>
+      <%= text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" } %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :account_number %>
+      <%= text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" } %>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

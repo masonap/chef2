@@ -1,0 +1,51 @@
+<%= render 'layouts/carousel' %>
+<%# trying new carousel
+  <div class="jumbotron">
+    <h1>Have an amazing chef <br>
+        cook for you!</h1>
+    <h2>Your very own personal chef</h2>
+  </div>
+%>
+<%# Need to update values <%= render 'layouts/value3' %> 
+
+<br>
+<%# search functionality %>
+<%= search_form_for @q do |f| %>
+    <div class="form-group">
+      <%= f.label :name_cont, "Menu contains" %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.text_field :name_cont, class: "form-control" %>
+        </div>
+        <div class="col-md-2">
+          <%= f.submit "Search", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <div>
+<% end %>
+
+
+   <br>     
+          
+
+<div class="center">
+  <div class="row">
+    <% @listings.each do |listing| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag(listing.image.url), listing %>
+          <div class="caption">
+            <h3><%= listing.name %></h3>
+            <p><%= "by Chef #{listing.user.name}" %></p>
+            <p><%= number_to_currency(listing.price) %> per person</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
+<%= render 'layouts/newlisting' %>
+
