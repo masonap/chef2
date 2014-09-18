@@ -94,25 +94,48 @@ FOOTER
 VALUE 3
 *****************************************/
 
-#value3 {
-  color: rgb(79, 79, 79);
-display: block;
-font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-font-size: 13px;
-height: 49px;
-line-height: 18.2000007629395px;
-margin-bottom: 0px;
-margin-left: 58.5px;
-margin-right: 58.5px;
-margin-top: 0px;
-padding-bottom: 40px;
-padding-left: 20px;
-padding-right: 20px;
-padding-top: 40px;
-text-align: center;
-width: 940px;
-zoom: 1;
+
+
+#reasons ul {
+  list-style-type: none;
+  padding: 0;
 }
+
+#reasonleft {
+  background-color: #F5F5F1;
+  border-right-style: solid;
+  border-right-width: 1px;
+/*  border-right-color: #7F7F7F; */
+  padding: 0;
+}
+#reasonmiddle {
+  background-color: #F5F5F1;
+  padding: 0;
+}
+#reasonright {
+  background-color: #F5F5F1;
+  border-left-style: solid;
+  border-left-width: 1px;
+/*  border-left-color: #7F7F7F; */
+  padding: 0;
+}
+
+#value3large {
+  font-size: 1.5em;
+  font-weight: 700;
+  text-align: center;
+  clear: both;
+  padding-top: 30px;
+}
+
+#value3small {
+  font-size: 1.25em;
+  text-align: center;
+  clear: both;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
 
 /****************************************
 CAROUSEL

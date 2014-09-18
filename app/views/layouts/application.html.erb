@@ -12,6 +12,10 @@
 
 <%= render 'layouts/header' %>
 
+
+<%# 
+<%# Work on a workaround for removing container here or making it so its possible to have background colors extend completely to the end
+%>
 <div class="container">
 
   <% flash.each do |name, msg| %>
@@ -25,8 +29,10 @@
 
   <%= yield %>
 
-  <%= render 'layouts/footer' %>
 </div>
+
+  <%= render 'layouts/footer' %>
+
 
 </body>
 </html>
